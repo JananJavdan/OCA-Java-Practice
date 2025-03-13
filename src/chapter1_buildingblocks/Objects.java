@@ -45,5 +45,33 @@ s.name = "John Wayne";   >>>>  set variable
 System.out.println(s.name);   >>>>  get variable
  }
 }
+
+Order of initialization
+the code between two brackets {...} is called code block
+instance initializer - code block outside the method
+
+order of initialization:
+1. fields and instance initializer blocks in order in which they appear
+2. constructor runs in the end
+
+public class Dog {
+private String name = "Chip";
+public Dog() {
+name = "Teddy";    >>> 2
+System.out.println("Inside the constructor...");  >>> 2
+}
+{ System.out.println("Inside the initializer block..."); }   >>> 1
+
+public static void main(String[] args) {
+Dog dog = new Dog();
+System.out.println(dog.name);   >>> 3
+ }
+}
+ $ java Dog
+Inside the initializer block...
+Inside the constructor...
+Teddy
+
+
      */
 }
